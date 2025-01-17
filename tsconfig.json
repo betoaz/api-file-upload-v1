@@ -1,0 +1,20 @@
+{
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "include": ["./src/**/*"],
+  "exclude": ["./node_modules", "./dist"],
+  "compilerOptions": {
+		/* Projects */
+		"composite": true,                    	/* Enable constraints that allow a TypeScript project to be used with project references. */
+		/* Modules */
+		"types": ["node"],                    	/* Specify type package names to be included without being referenced in a source file. */
+		"baseUrl": ".",                       	/* Specify the base directory to resolve non-relative module names. */
+		"paths": {                            	/* Specify a set of entries that re-map imports to additional lookup locations. */
+			"@/*": ["./src/*"]
+		},
+		/* Emit */
+		"outDir": "./dist",                   	/* Specify an output folder for all emitted files. */
+		"removeComments": true,               	/* Disable emitting comments. */
+		/* Type Checking */
+		"noImplicitReturns": true             	/* Enable error reporting for codepaths that do not explicitly return in a function. */
+  }
+}

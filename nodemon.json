@@ -1,0 +1,21 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "dist/"
+  ],
+  "verbose": true,
+  "exec": "npm run dev",
+  "events": {
+    "start": "npm run lint",
+    "restart": "npm run lint"
+  },
+  "watch": [
+	  "src/"
+  ],
+  "env": {
+	  "NODE_ENV": "development"
+  },
+  "ext": "js,jsx,mjs,cjs,ts,tsx,mts,cts,json"
+}
