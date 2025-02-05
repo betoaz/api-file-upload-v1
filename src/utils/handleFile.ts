@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { v4 as randomUUID } from 'uuid'
+import { v4 as randomID } from 'uuid'
 import sharp from 'sharp'
 import mime from 'mime'
 import type { Maybe, ImgUploadInput } from '../types/graphql/codegen/resolvers.js'
@@ -28,8 +28,8 @@ export const getImageInfo = async (
   const ext = name.split('.').pop()?.toLowerCase()
   if (!ext) return null
 
-  const uuid = randomUUID()
-  const outputPath = path.join(dirname, `${uuid}.${ext}`)
+  const id = randomID()
+  const outputPath = path.join(dirname, `${id}.${ext}`)
   const mimetype = mime.getType(outputPath)
   if (!mimetype) return null
 
@@ -41,7 +41,7 @@ export const getImageInfo = async (
     fs.writeFileSync(outputPath, encode, { encoding: 'base64' })
     const imageProcessor = sharp(outputPath)
     const img = imageProcessor.resize(160, 192).webp()
-    const newOutputPath = path.join(dirname, `${uuid}.webp`)
+    const newOutputPath = path.join(dirname, `${id}.webp`)
 
     await img.toFile(newOutputPath)
     const buffer = fs.readFileSync(newOutputPath)

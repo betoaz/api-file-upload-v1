@@ -8,10 +8,9 @@ import type {
 } from '@/types/client.js'
 import { gql, GraphQLClient, type ClientError, type Variables } from 'graphql-request'
 import logger from '@/utils/logger.js'
+import { GATEWAY_ENDPOINT } from '@/config/index.js'
 
-const { GATEWAY_URL } = process.env
-const ENDPOINT = `${GATEWAY_URL || 'http://localhost:8080'}/graphql`
-const client = new GraphQLClient(ENDPOINT)
+const client = new GraphQLClient(GATEWAY_ENDPOINT)
 
 export const deleteImage: DeleteImageFn = async (id, token) => {
   const query = gql`

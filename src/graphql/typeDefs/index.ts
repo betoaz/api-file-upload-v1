@@ -35,7 +35,7 @@ const typeDefs = gql`
   input FileUploadInput {
     name: NonEmptyString!
     encode: NonEmptyString!
-    # url: NonEmptyString!
+    # path: NonEmptyString
   }
 
   type Image @key(fields: "id", resolvable: false) {

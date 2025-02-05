@@ -29,5 +29,3 @@ start(
   NODE_ENV || 'development',
   PORT ?? 4003,
 )
-
-// console.log(new URL("../uploads/", import.meta.url))
