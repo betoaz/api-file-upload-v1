@@ -33,7 +33,7 @@ export const deleteImage: DeleteImageFn = async (id, token) => {
     }
   } catch (error) {
     const err = error as ClientError
-    logger.error('checkUser: %s', err.message)
+    logger.error('deleteImage: %s', err.message)
   }
 
   return null
@@ -64,7 +64,7 @@ export const getPersonPic: GetPersonPicFn = async (id, token) => {
     if (result) return result.pic
   } catch (error) {
     const err = error as ClientError
-    logger.error('checkUser: %s', err.message)
+    logger.error('getPersonPic: %s', err.message)
   }
 
   return null
@@ -113,10 +113,10 @@ export const addPersonPic: AddPersonPicFn = async (
   try {
     const data = await client.request<AddPersonPicData>(mutation, variables, headers)
     const result = data.updatePerson
-    if (result) return result.person.pic
+    if (result) return result.person[0].pic
   } catch (error) {
     const err = error as ClientError
-    logger.error('checkUser: %s', err.message)
+    logger.error('addPersonPic: %s', err.message)
   }
 
   return null

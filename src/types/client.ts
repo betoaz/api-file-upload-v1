@@ -21,5 +21,5 @@ export type AddPersonPicFn = (
 ) => Promise<Maybe<Image>>
 
 export type AddPersonPicData = {
-  updatePerson: Maybe<{ person: { pic: Maybe<Image> } }>
+  updatePerson: Maybe<{ person: [{ pic: Maybe<Image> }] }>
 }
